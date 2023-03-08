@@ -3,24 +3,71 @@
 <head>
 	<title>Newspaper Website</title>
   <link rel="stylesheet" href="Style.css">
+
+	<!-- Bootstrap files (jQuery first, then Popper.js, then Bootstrap JS) -->
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+	crossorigin="anonymous"></script>
+
+	<!-- Navigation Button for Mobile Version -->
+	<script type="text/javascript">
+	$(function () {
+		  'use strict'
+
+		$("[data-trigger]").on("click", function(){
+	        var trigger_id =  $(this).attr('data-trigger');
+	        $(trigger_id).toggleClass("show");
+	        $('body').toggleClass("offcanvas-active");
+	    });
+
+	    // close if press ESC button
+	    $(document).on('keydown', function(event) {
+	        if(event.keyCode === 27) {
+	           $(".navbar-collapse").removeClass("show");
+	           $("body").removeClass("overlay-active");
+	        }
+	    });
+
+	    // close button
+	    $(".btn-close").click(function(e){
+	        $(".navbar-collapse").removeClass("show");
+	        $("body").removeClass("offcanvas-active");
+	    });
+
+
+	})
+	</script>
+
 </head>
-<body>
+<body class="bg-secondary">
 	<header>
-		<h1>Gentrification Project</h1>
-    <nav>
-			<ul>
-				<li><a href="#1">Connector</a></li>
-				<li><a href="#2">MLK</a></li>
-				<li><a href="#3">'96 Olympics'</a></li>
-				<li><a href="#4">Park</a></li>
-				<li><a href="#5">Church</a></li>
-        <li><a href="#6">Residents</a></li>
-			</ul>
-    </nav>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand" href="#"><h1>Gentrification Gazette</h1></a>
+			<button class="navbar-toggler" type="button" data-trigger="#main_nav">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="navbar-collapse" id="main_nav">
+				<div class="offcanvas-header mt-3">
+					<button class="btn btn-outline-danger btn-close float-right"> &times Close </button>
+					<h5 class="py-2 text-white">Navigation</h5>
+				</div>
+				<ul class="navbar-nav">
+					<li class="nav-item active"> <a class="nav-link" href="#1">Connector</a> </li>
+					<li class="nav-item"><a class="nav-link" href="#2">MLK</a></li>
+					<li class="nav-item"><a class="nav-link" href="#3">Olympics</a></li>
+					<li class="nav-item"><a class="nav-link" href="#4">Park</a></li>
+					<li class="nav-item"><a class="nav-link" href="#5">Church</a></li>
+					<li class="nav-item"><a class="nav-link" href="#6">Home</a></li>
+				</ul>
+			</div> <!-- navbar-collapse.// -->
+		</nav>
 	</header>
+
 	<main id="1">
-  		<article>
-  			<h1>The Sands of Separation</h1>
+
+  		<article class="bg-light">
+				<h1>The Sands of Separation</h1>
         <h3>Section 1: The Connector</h3>
   			<p>Gentrification, the process of renovating and improving a neighborhood, often results in the displacement of its original residents, particularly in low-income and minority communities. The case of Peoplestown, a historic Black neighborhood in Atlanta, Georgia, is a prime example of how gentrification has affected communities across the United States.</p>
         <p>Peoplestown was established in the late 1800s as a working-class neighborhood for Black families who were employed by the nearby railroad and brick factories. Over time, the neighborhood became home to a tight-knit community with its own churches, schools, and businesses.</p>
@@ -64,6 +111,8 @@
         <p>The current residents of Peoplestown have faced systemic harassment from the city as they fight to keep their homes. The city has repeatedly targeted the residents with code inspections, even after their homes have passed inspection. In addition, the city sent a company to shut off their gas without warning, in preparation for demolitions. The police have also been surveilling the contested block and parking outside residents' homes, which the city denies.</p>
         <p>In conclusion, the case of Peoplestown is a stark example of how gentrification can displace communities, erase history, and perpetuate inequality. While development and revitalization can be positive forces, they must be done with care and respect for the communities they affect. Only then can we ensure that neighborhoods like Peoplestown can continue to thrive and evolve without sacrificing their cultural and historical significance.</p>
       </article>
+
   </main>
+
 </body>
 </html>
